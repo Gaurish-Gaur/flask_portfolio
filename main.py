@@ -21,6 +21,15 @@ def kangaroos():
 def walruses():
     return render_template("walruses.html")
 
+@app.route('/stub', methods=['GET', 'POST'])
+def greet():
+    # submit button has been pushed
+    if request.form:
+        name = request.form.get("name")
+        if len(name) != 0:  # input field has content
+            return render_template("stub.html", name=name)
+    return render_template("greet.html", name="World")
+    # starting and empty input default
 
 @app.route('/hawkers/')
 def hawkers():
